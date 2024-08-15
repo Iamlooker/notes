@@ -16,7 +16,6 @@ Allocate a array of siz n in O(n) time
 Space is O(time)
 
 #### word RAM model of computation
-
 (w is machine word size, currently 64 or 256 for some structures)
 - memory = array of w-bit words
 - 'array' is a consecutive chunk of memory
