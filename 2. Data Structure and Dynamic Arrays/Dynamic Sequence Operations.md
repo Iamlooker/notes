@@ -1,4 +1,4 @@
-
+![[Pasted image 20240815170702.png]]
 ##### Static Array
 - insert/delete anywhere costs O(n) time because need shifting if we perform near start and also need reallocation/copying
 ##### Linked List
