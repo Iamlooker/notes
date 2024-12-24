@@ -1,6 +1,8 @@
 
 ![[Pasted image 20240815170648.png]]
-# Python List are dynamic arrays
+# Kotlin MutableList are dynamic arrays
+
+Kotlin List are extension of ArrayList of Java which is a dynamic array.
 
 - Relax the constrainst size (array) = n, i.e if we want a array to store n items it can we around n+4.
 - enforce size = ϴ(n) and >= n
