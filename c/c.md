@@ -22,6 +22,12 @@
   - [Static & Dynamic Scoping](#static-dynamic-scoping)
     - [Static Scoping](#static-scoping)
     - [Dynamic Scoping](#dynamic-scoping)
+- [Arrays and Pointer](#arrays-and-pointer)
+  - [Array](#array)
+    - [Advantage](#advantage)
+    - [Disadvantage](#disadvantage)
+    - [2D Array](#2d-array)
+  - [Pointers](#pointers)
 <!--toc:end-->
 
 ## Data Type
@@ -174,4 +180,115 @@ printf("%d %d %lu", ++a, b, sizeof(a+d));
 # Arrays and Pointer
 
 ## Array
+```
+(data_type) (name)[size];
+int marks[21];
+int marks[5] { 12, 31, 46, 21, 12 };
+int marks[] { 12, 31, 46, 21, 12 }; // Only allowed if all items are defined
+```
+
+- Collection of similar type of data items
+- Stored at contigous memory locations
+- Capability to store primitive, pointers, structures, etc.
+- Can be randomly accessed using [index]
+- Name of array is the address of its first element
+- Modifiers are not valid
+- Name cannot be reassigned
+- `a[2]===*(a + 2)===*(2 + a)===2[a]` are same after declaration
+
+### Advantage
+- Less code to access
+- Ease of sorting
+- Ease of traversing
+- Random Access
+- Cache friendliness, improves performance
+
+### Disadvantage
+- Fixed size
+
+### 2D Array
+```
+int hi[2][3];
+```
+- Array of arrays
+- Organised as matrix
+
+During declaration size is required:
+```
+int mark[5]; //valid
+int mark[];  //invalid
+```
+During initialization size of **First dimension is optional**:
+```
+int marker[][3] = { 2, 3, 1, 4 }; //valid
+int marker[3][] = { 2, 3, 1, 4 }; //invalid
+```
+
+## Pointers
+
+**When doing `int *p = 2;` `*p` is the actual integer and p is the location of `value` in memory address
+
+1. Dangling Pointer: _The pointer pointing to a deallocated memory block is known as dangling pointer_
+
+2. Uninitialized/Wild Pointer: _A uninitialized pointer_
+Ex:
+```
+int *p;
+*p => points at garbage
+```
+
+3. Null Pointer: _A pointer pointing at nothing. Used to distinguish between a valid and invalid pointer_
+
+4. void Pointer: _A pointer which points to some location in memory but that has no specific type_
+Ex:
+```
+void *p;
+int x = 10;
+p = &x;
+printf("%d", *p); // invalid
+printf("%d", *(int*)p); // valid (typecasted)
+```
+
+## Strings
+- Sequence of characters terminated by a null character '\0'
+
+**NOTE: In case of string `printf` takes a pointer and keeps printing till null char is not reached
+
+### Two methods of initialization:
+ ```
+ char name[10] = "Pankaj";
+ ```
+1. A array of size 10 is allocated
+2. Array is populated: { P, a, n, k, a, j, \0, , , , , , } (size 10)
+3. This is allocated to a read/write-able part,i.e. can be modified using `name[2] = "2"` or `strcpy(name, "raju")` but **not** with `name = "ramu"`
+
+```
+char *name = "Pankaj";
+```
+1. Address of first char is saved to name
+2. Memory is populated: { P, a, n, k, a, j, \0 } (size fixed)
+3. Allocated to read/only, i.e. can be modified only with `name = "Mohit"`. This will update the pointer
+
+```
+printf("Hello") // Hello, as "Hello" is just the address of 'H'
+printf("Hello" + 1) // ello, as "Hello" + 1 is the address of 'e'
+```
+
+### Important functions
+- strlen(): returns length of string
+- strcpy(a, b): copies string `b` to array `a`
+- strcmp(): compares two strings and returns `0` if true
+- strcat(a, b): concatenate two strings, will be stored in `a`
+
+# Questions
+
+`int(*(*f[5]))()[9];` => f is an array of 5 pointer to function returning pointer to array of 9 integers.
+
+
+
+
+
+
+
+
 

@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 
 int main() {
   /*printf("%d\n", 0||0); // 0*/
@@ -26,5 +28,9 @@ int main() {
   /*int b = 'a';*/
   /*int ans = b++ ^ ++a ? ~(a + 1) + ~a + b ? ~b - a : ~(a + b) : a & b;*/
   /*printf("%d\n", ans);*/
+
+  char str[] = "GATE 2024";
+  char *ptr = str;
+  printf("%d", (int)strlen(str + 1 [ptr] - ptr[8] - 9));
   return 0;
 }
